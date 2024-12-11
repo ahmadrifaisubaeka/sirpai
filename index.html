@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Toko Online Jajanan Ringan dengan berbagai pilihan snack lezat dan harga terjangkau.">
+    <title>Toko Jajan Ringan</title>
+   
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Toko Jajan Ringan",
+        "image": "https://example.com/logo.png",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jalan Cemilan No. 10",
+            "addressLocality": "Surabaya",
+            "addressRegion": "Jawa Timur",
+            "postalCode": "60256",
+            "addressCountry": "ID"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "-7.257472",
+            "longitude": "112.752090"
+        },
+        "openingHours": "Mo-Su 08:00-20:00",
+        "telephone": "+62-31-98765432",
+        "priceRange": "Rp",
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "250"
+        }
+    }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #ff9900;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .product-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            width: 200px;
+            padding: 10px;
+            text-align: center;
+        }
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin: 0 auto;
+            display: block;
+        }
+        .product-item h3 {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .product-item .price {
+            color: green;
+            font-weight: bold;
+        }
+        .rating {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .rating span {
+            color: gold;
+            font-size: 18px;
+            margin: 0 1px;
+        }
+        .add-to-cart {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .add-to-cart:hover {
+            background-color: #218838;
+        }
+        .buy-now {
+            background-color: grey;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .buy-now:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Toko animal pai</h1>
+        <p>jinak dan ramah lingkungan!</p>
+    </header>
+
+    <div class="container">
+        <h2>Silahkan dipilih</h2>
+        <div class="product">
+            <div class="product-item">
+                <img src="http://3.bp.blogspot.com/-YB4azI9Q6JA/UeVkSVlG4XI/AAAAAAAANeE/nbzZI3N8uvo/w1200-h630-p-k-nu/bm-image-710571.jpeg" alt="kucing oren">
+                <h3>kucing oren</h3>
+                <p>jinak dan tidak gigit</p>
+                <p class="price">Rp 15.000.000</p>
+                <div class="rating">
+                    <span>&#9733;</span>
+                    <span>&#9733;</span>
+                    <span>&#9733;</span>
+                    <span>&#9733;</span>
+                    <span>&#9734;</span>
+                </div>
+                <button class="add-to-cart" onclick="addToCart('kucing oren', 15000000)">Masuk Keranjang</button>
+                <button class="buy-now" onclick="buyNow('kucing oren', 15000000)">Beli Sekarang</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Keranjang Anda</h2>
+        <ul id="cart"></ul>
+        <p id="total" style="font-weight: bold;">Total: Rp 0</p>
+    </div>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function addToCart(productName, price) {
+            cart.push({ name: productName, price: price });
+            total += price;
+
+            // Update keranjang di halaman
+            const cartList = document.getElementById('cart');
+            const totalElement = document.getElementById('total');
+            cartList.innerHTML = '';
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.name} - Rp ${item.price.toLocaleString()}`;
+                cartList.appendChild(listItem);
+            });
+            totalElement.textContent = `Total: Rp ${total.toLocaleString()}`;
+        }
+
+        function buyNow(productName, price) {
+            alert(`Anda telah membeli ${productName} seharga Rp ${price.toLocaleString()}. Terima kasih atas pembeliannya!`);
+        }
+    </script>
+</body>
+</html>
